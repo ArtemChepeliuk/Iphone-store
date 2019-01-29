@@ -1,0 +1,23 @@
+.carousel-control-next-icon, .carousel-control-prev-icon{
+  background-image: none
+}
+
+.fas{
+  color: black;
+  font-size: 40px;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.color-text{
+  font-size: 25px;
+}
+
+.price{
+  font-size: 26px;
+  display: inline-block;
+  padding: 10px;
+  margin: 0 auto;
+}

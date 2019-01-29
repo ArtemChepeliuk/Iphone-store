@@ -7,11 +7,11 @@
   <title>Buy Iphone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" media="screen" href="css.css" />
-  <script src="js.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  <script src="app.js"></script>
 </head>
 
 <body>
@@ -19,23 +19,23 @@
   <div class="container pt-5">
 
     <div class="row">
-      <h1>Iphone Store</h1>
+      <h1 >Iphone</h1>
     </div>
 
     <div class="row pt-5">
       <div class="col-md-4">
         <div class="form-group">
-          <label for="search">find your phone</label>
-          <input type="text" class="form-control" id="search" placeholder="model, color ...">
+          <label for="search"> <strong> Поиск</strong></label>
+          <input type="text" class="form-control" id="search" placeholder="модель ...">
           <hr>
 
           <ul class="list-group">
-            <li class="list-group-item list-group-item-action list-group-item-info">Iphone SE</li>
-            <li class="list-group-item list-group-item-action list-group-item-info">Iphone 7 plus</li>
-            <li class="list-group-item list-group-item-action list-group-item-info">Iphone 8 plus</li>
-            <li class="list-group-item list-group-item-action list-group-item-info">Iphone X</li>
-            <li class="list-group-item list-group-item-action list-group-item-info">Iphone XR</li>
-            <li class="list-group-item list-group-item-action list-group-item-info">Iphone XS max</li>
+            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone SE</li>
+            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone 7 plus</li>
+            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone 8 plus</li>
+            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone X</li>
+            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone XR</li>
+            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone XS max</li>
           </ul>
         </div>
       </div>
@@ -67,12 +67,16 @@
                             </div>
                           </div>
                           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only " style="color:aqua;">Previous</span>
+                              <i class="fas fa-chevron-circle-left"></i>
+
+                            <span class="carousel-control-prev-icon" aria-hidden="true">
+                            </span>
+                            <span class="sr-only ">Previous</span>
                           </a>
                           <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                              <i class="fas fa-chevron-circle-right"></i>
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only" style="color:aqua;">Next</span>
+                            <span class="sr-only" >Next</span>
                           </a>
                         </div>
                   </div>
@@ -81,21 +85,24 @@
             </div>
           </div>
           <div class="col-md-7">
-            <h5 class="mb-3">Phone details</h5>
+            <h5 class="mb-3">Объем памяти</h5>
             <button class="btn btn-outline-info m-2" data-size="16">16</button>
             <button class="btn btn-outline-info  m-2" data-size="32">32</button>
             <button class="btn btn-outline-info  m-2" data-size="64">64</button>
             <button class="btn btn-outline-info  m-2" data-size="128">128</button>
             <button class="btn btn-outline-info  m-2" data-size="256">256</button>
             <button class="btn btn-outline-info  m-2" data-size="512">512</button>
-            <p class="m-3">Цвет</p>
+            <p class="m-3 color-text">Цвет</p>
             <button type="button" class="btn btn-secondary m-3">&nbsp;</button>
             <button type="button" class="btn btn-dark m-3">&nbsp;</button>
             <button type="button" class="btn btn-danger m-3">&nbsp;</button>
             <button type="button" class="btn btn-warning m-3">&nbsp;</button>
             <button type="button" class="btn btn-light color-white m-3">&nbsp;</button>
 
-
+            <div class="m-3 price bg-primary text-white rounded text-center"> <strong> 15 000 грн </strong></div>
+            <p>Не позорься, собирай деньги!!!</p>
+            <button class="btn btn-success mr-3">КУПИТЬ</button>
+            <button class="btn btn-danger">КУПИТЬ В КРЕДИТ</button>
             <ul class="pt-3">
               <li class="mt-3">Дисплей Retina HD 5,5 дюйма </li>
               <li class="mt-3">Камера Двойная камера 12 Мп с режимом «Портрет» и возможностью записи видео 4K с
@@ -107,9 +114,7 @@
               </li>
               <li class="mt-3">Объем встроенной памяти 128 Гб</li>
             </ul>
-            <p>Не позорься, собирай деньги!!!</p>
-            <button class="btn btn-success mr-3">КУПИТЬ</button>
-            <button class="btn btn-danger">КУПИТЬ В КРЕДИТ</button>
+           
           </div>
         </div>
 
