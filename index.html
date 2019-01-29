@@ -11,15 +11,14 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-  <script src="app.js"></script>
 </head>
 
 <body>
-
-  <div class="container pt-5">
+<div id="app">
+  <div class="container pt-5 ">
 
     <div class="row">
-      <h1 >Iphone</h1>
+      <h1>Iphone</h1>
     </div>
 
     <div class="row pt-5">
@@ -30,23 +29,26 @@
           <hr>
 
           <ul class="list-group">
-            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone SE</li>
-            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone 7 plus</li>
-            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone 8 plus</li>
-            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone X</li>
-            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone XR</li>
-            <li class="list-group-item list-group-item-action list-group-item-info pointer">Iphone XS max</li>
+            <li v-for="(phone, index) of phones" 
+            v-on:click="selectphone(index)"
+            :class="{'active': selectedphoneIndex === index}"
+            class="list-group-item list-group-item-action list-group-item-info pointer">{{ phone.name }} {{ phone.model }}</li>
+
           </ul>
         </div>
       </div>
       <div class="col-md-8">
 
         <div class="row">
-          <div class="col-md-5">
-            <h4 class="mb-5">Iphone 7+ <span data-size="128gb">128</span>gb <span>black</span></h4>
+          <div class="col-md-6">
+            <h4 class="mb-5">{{ phone.name }} {{ phone.model }} 
+              <span>{{ size.phoneSize }}</span>
+              gb 
+              <span >{{ color.phoneColor }}</span>
+            </h4>
 
             <a href="#" type="button" class="" data-toggle="modal" data-target=".bd-example-modal-xl" title="купить айфон">
-              <img src="img/7-1.jpg" alt="купить айфон" class="img-fluid">
+              <img :src="phone.image" :alt="phone.model" class="img-fluid">
             </a>
 
             <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
@@ -57,13 +59,13 @@
                       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                           <div class="carousel-inner text-center">
                             <div class="carousel-item active text-center " >
-                              <img src="img/7-1.jpg" class=" text-center" alt="купить айфон">
+                              <img :src="phone.FirstSliderImage" class=" text-center" alt="купить айфон">
                             </div>
                             <div class="carousel-item text-center">
-                              <img src="img/7-2.jpg" class=" text-center" alt="купить айфон">
+                              <img :src="phone.secondSliderImage" class=" text-center" alt="купить айфон">
                             </div>
                             <div class="carousel-item text-center">
-                              <img src="img/7-3.jpg" class=" text-center" alt="купить айфон">
+                              <img :src="phone.thirdSliderImage" class=" text-center" alt="купить айфон">
                             </div>
                           </div>
                           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -84,22 +86,21 @@
               </div>
             </div>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-6">
             <h5 class="mb-3">Объем памяти</h5>
-            <button class="btn btn-outline-info m-2" data-size="16">16</button>
-            <button class="btn btn-outline-info  m-2" data-size="32">32</button>
-            <button class="btn btn-outline-info  m-2" data-size="64">64</button>
-            <button class="btn btn-outline-info  m-2" data-size="128">128</button>
-            <button class="btn btn-outline-info  m-2" data-size="256">256</button>
-            <button class="btn btn-outline-info  m-2" data-size="512">512</button>
+            <button class="btn btn-outline-info m-1" 
+            v-for="(size, index) of sizes" 
+            v-on:click="selectSizes(index)"
+            >{{ size.phoneSize }}</button>
+            
             <p class="m-3 color-text">Цвет</p>
-            <button type="button" class="btn btn-secondary m-3">&nbsp;</button>
-            <button type="button" class="btn btn-dark m-3">&nbsp;</button>
-            <button type="button" class="btn btn-danger m-3">&nbsp;</button>
-            <button type="button" class="btn btn-warning m-3">&nbsp;</button>
-            <button type="button" class="btn btn-light color-white m-3">&nbsp;</button>
-
-            <div class="m-3 price bg-primary text-white rounded text-center"> <strong> 15 000 грн </strong></div>
+            <button type="button" class="btn m-3"
+            v-for="(color, index) of colors" 
+            v-on:click="selectColor(index)"
+            :class="color.colorsClass"
+            :class="{'active': selectColorsIndex === index} "
+            >&nbsp;</button>
+            <div class="m-3 price bg-primary text-white rounded text-center"> <strong> {{ phone.price }} грн </strong></div>
             <p>Не позорься, собирай деньги!!!</p>
             <button class="btn btn-success mr-3">КУПИТЬ</button>
             <button class="btn btn-danger">КУПИТЬ В КРЕДИТ</button>
@@ -123,7 +124,7 @@
 
   </div>
 
-
+</div>
 
 
 
@@ -140,6 +141,8 @@
       ride: true,
 })
     </script>
+  <script src="app.js"></script>
+
 </body>
 
 </html>
