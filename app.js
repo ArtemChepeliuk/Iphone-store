@@ -8,12 +8,12 @@ const phone = (name, model, image, price, FirstSliderImage, secondSliderImage, t
   thirdSliderImage
 });
 const phones = [
-  phone("Iphone", "SE", "img/se1.jpg", 6500, "img/se1.jpg", "img/se2.jpg", "img/se3.jpg"),
-  phone("Iphone", "7 Plus", "img/7-1.jpg", 12600, "img/7-1.jpg", "img/7-2.jpg", "img/7-3.jpg"),
-  phone("Iphone", "8 Plus", "img/8-1.jpg", 15800, "img/8-1.jpg", "img/8-2.jpg", "img/8-3.jpg"),
-  phone("Iphone", "X", "img/x-1.jpg", 19500, "img/x-1.jpg", "img/x-2.jpg", "img/x-3.jpg"),
-  phone("Iphone", "XR", "img/xr-1.jpg", 20200, "img/xr-1.jpg", "img/xr-2.jpg", "img/xr-3.jpg"),
-  phone("Iphone", "XS Max", "img/xs-1.jpg", 25350, "img/xs-1.jpg", "img/xs-2.jpg", "img/xs-3.jpg"),
+  phone("Iphone", "SE", "img/se1.jpg", "6 500", "img/se1.jpg", "img/se2.jpg", "img/se3.jpg"),
+  phone("Iphone", "7 Plus", "img/7-1.jpg", "12 600", "img/7-1.jpg", "img/7-2.jpg", "img/7-3.jpg"),
+  phone("Iphone", "8 Plus", "img/8-1.jpg", "15 800", "img/8-1.jpg", "img/8-2.jpg", "img/8-3.jpg"),
+  phone("Iphone", "X", "img/x-1.jpg", "19 500", "img/x-1.jpg", "img/x-2.jpg", "img/x-3.jpg"),
+  phone("Iphone", "XR", "img/xr-1.jpg", "20 200", "img/xr-1.jpg", "img/xr-2.jpg", "img/xr-3.jpg"),
+  phone("Iphone", "XS Max", "img/xs-1.jpg", "25 350", "img/xs-1.jpg", "img/xs-2.jpg", "img/xs-3.jpg"),
 ]
 const size = (phoneSize) => ({
   phoneSize
@@ -51,6 +51,8 @@ new Vue({
     colors: colors,
     color: colors[0],
     selectColorsIndex: 0,
+    search: '',
+    creditVisibility: false,
   },
   methods: {
     selectphone(index) {
@@ -65,5 +67,12 @@ new Vue({
       this.color = colors[index];
       this.selectColorsIndex = index;
     },
-  }
+  },
+  computed: {
+    searchPhones() {
+      return this.phones.filter(phone => {
+        return phone.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || phone.model.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+      })
+    }
+  },
 });
