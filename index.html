@@ -87,7 +87,7 @@
             <h5 class="mb-3">Объем памяти</h5>
             <button class="btn btn-outline-info m-1" 
             v-for="(size, index) of sizes" 
-            v-on:click="selectSizes(index)"
+            v-on:click="selectSizes(index)" 
             :class="{'active': selectSizesIndex === index}"
             >{{ size.phoneSize }}</button>
             
